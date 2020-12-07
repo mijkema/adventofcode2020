@@ -1,0 +1,25 @@
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.4.20'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '30.0-jre'
+}
