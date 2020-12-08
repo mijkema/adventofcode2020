@@ -42,8 +42,8 @@ fun getTotalBags(graph: MutableValueGraph<String, Int>?, node: String): Int {
     var result = 0
     successors.forEach { s ->
         run {
-            val edgeValue = graph.edgeValue(node, s).get();
-            result += edgeValue + edgeValue * getTotalBags(graph, s);
+            val edgeValue = graph.edgeValue(node, s).get()
+            result += edgeValue + edgeValue * getTotalBags(graph, s)
         }
     }
     return result
