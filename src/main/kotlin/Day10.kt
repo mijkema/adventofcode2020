@@ -10,7 +10,7 @@ fun main() {
     numbers.add(numbers.last() + 3)
     var differencesOfOne = 0
     var differencesOfThree = 0
-    numbers.windowed(2).forEach{ window ->
+    numbers.windowed(2).forEach { window ->
         if (window[1] - window[0] == 1) differencesOfOne++
         if (window[1] - window[0] == 3) differencesOfThree++
     }
@@ -21,7 +21,7 @@ fun main() {
     // part 2
     var solutions = 1L
     var windowLength = 1
-    numbers.windowed(2).forEach{ window ->
+    numbers.windowed(2).forEach { window ->
         if (window[1] - window[0] == 1) {
             windowLength++
         } else {
@@ -32,4 +32,22 @@ fun main() {
         }
     }
     println("solutions: $solutions")
+
+    // part 2, less hacky
+    val countMap = mutableMapOf<Int, Long>()
+    numbers.forEachIndexed loop@{ i, n ->
+        if (i < 2) {
+            countMap[i] = 1L
+            return@loop
+        }
+        countMap[i] = countMap[i  - 1]!!
+        numbers
+                .subList(0, i - 1)
+                .reversed()
+                .takeWhile { j -> n - j <= 3 }
+                .forEach {
+                    countMap[i] = countMap[i]!! + countMap[numbers.indexOf(it)]!!
+                }
+    }
+    println("solutions: ${countMap[numbers.size - 1]}")
 }
