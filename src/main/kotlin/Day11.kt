@@ -20,7 +20,7 @@ fun main() {
     println("occupied1: ${locations.flatMap { r -> r }.count { l -> l == OCCUPIED }}")
 
 
-    locations = mutableListOf<List<LocationType>>()
+    locations = mutableListOf()
     File("inputs/Day11").forEachLine {
         locations.add(it.map { c -> LocationType.fromChar(c) })
     }
