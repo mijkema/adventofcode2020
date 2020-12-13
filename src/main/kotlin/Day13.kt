@@ -31,12 +31,10 @@ fun main() {
     var position = 0L
     var offset = 1L
     busTimes.forEach {
-        var index = it.first
-        var schedule = it.second
-        while ((position + index).rem(schedule) != 0L) {
+        while ((position + it.first).rem(it.second) != 0L) {
             position += offset
         }
-        offset *= schedule
+        offset *= it.second
     }
     println("solution part 2: $position")
 }
