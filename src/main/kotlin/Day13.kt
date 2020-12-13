@@ -12,7 +12,7 @@ fun main() {
     busDepartureTimes.forEach {
         if (it == "x") return@forEach
         val schedule = it.toInt()
-        var current = schedule - startingTime.rem(schedule)
+        val current = schedule - startingTime.rem(schedule)
         if (current < waitingTime) {
             waitingTime = current
             busTime = schedule
@@ -21,7 +21,7 @@ fun main() {
     println("shortest: $busTime ($waitingTime), result: ${busTime * waitingTime}")
 
     // part 2
-    var busTimes = mutableListOf<Pair<Int, Int>>()
+    val busTimes = mutableListOf<Pair<Int, Int>>()
     busDepartureTimes.forEachIndexed{ i, s ->
         if (s == "x") return@forEachIndexed
         val schedule = s.toInt()
