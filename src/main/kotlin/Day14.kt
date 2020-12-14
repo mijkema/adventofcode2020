@@ -35,7 +35,8 @@ fun main() {
 
 fun applyMask(value: String, mask: String): String {
     val bin = Integer.toBinaryString(value.toInt()).padStart(36, '0')
-    return bin.mapIndexed { i, c -> if (mask[i] == 'X') c.toString() else mask[i].toString() }
+    return bin
+            .mapIndexed { i, c -> if (mask[i] == 'X') c.toString() else mask[i].toString() }
             .joinToString("")
 }
 
