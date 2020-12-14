@@ -27,8 +27,9 @@ fun main() {
             return@forEach
         }
         val (address, value) = pattern.matchEntire(it)!!.destructured
-        val result = applyMask2(address, mask)
-        result.forEach { a -> memoryMap2[toDecimal(a)] = value.toLong() }
+        getAddressesToWrite(address, mask).forEach {
+            a -> memoryMap2[toDecimal(a)] = value.toLong()
+        }
     }
     println("part2: ${memoryMap2.values.sum()}")
 }
@@ -40,7 +41,7 @@ fun applyMask(value: String, mask: String): String {
             .joinToString("")
 }
 
-fun applyMask2(value: String, mask: String): List<String> {
+fun getAddressesToWrite(value: String, mask: String): List<String> {
     val bin = Integer.toBinaryString(value.toInt()).padStart(36, '0')
     val result = bin
             .mapIndexed { i, c -> if (mask[i] == '0') c.toString() else mask[i].toString() }
