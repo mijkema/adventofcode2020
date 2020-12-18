@@ -14,7 +14,7 @@ fun main() {
 
 fun addBrackets(input: String): String {
     var evaluatedPlusses = 0
-    var total = input.count { c -> c == '+' }
+    val total = input.count { c -> c == '+' }
     var newString = input
     while (evaluatedPlusses < total) {
         val i = newString.mapIndexedNotNull{i, c -> if (c == '+') i else null}[evaluatedPlusses]
