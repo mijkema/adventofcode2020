@@ -41,7 +41,7 @@ fun addBrackets(input: String): String {
             if (rightBracketIndex >= newString.length) break
         }
         if (rightBracketIndex == i + 1) {
-            // this must be a closing bracket
+            // this must be an opening bracket
             var openCount = 1
             while (openCount != 0) {
                 rightBracketIndex++
