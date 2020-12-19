@@ -16,7 +16,6 @@ fun main() {
 
     rules[8] = "42 | 42 8"
     rules[11] = "42 31 | 42 11 31"
-    input.forEach{ l -> println("$l -> ${matches(l, rules, rules[0]!!, true)}")}
     println("matches: ${input.filter { l -> matches(l, rules, rules[0]!!, true) }.count()}")
 }
 
