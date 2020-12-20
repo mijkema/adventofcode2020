@@ -113,26 +113,6 @@ fun crop(t: List<String>): List<String> {
         .map { s -> s.substring(1, s.length - 1) }
 }
 
-fun printImage(fullImage: List<List<List<String>>>) {
-    println("image:")
-    fullImage.forEach { row ->
-        printRow(row)
-        println()
-    }
-}
-
-fun printRow(row: List<List<String>>) {
-    if (row.isEmpty()) return
-    row[0].forEachIndexed { i, _ ->
-        row.forEach { t -> print("${t[i]} ") }
-        println()
-    }
-}
-
-fun printTile(t: List<String>) {
-    t.forEach(::println)
-}
-
 fun isNeighbour(image: List<String>, nImage: List<String>): Set<String> {
     val result = mutableSetOf<String>()
     val rotations = getRotations(nImage)
